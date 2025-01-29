@@ -1,6 +1,6 @@
-import LoginScreen from './modules/screens/LoginScreen';
+import LoginScreen from './modules/screens/login/LoginScreen';
 
-function App() {
+const  App = () => {
   return (
     <>
       <LoginScreen />
