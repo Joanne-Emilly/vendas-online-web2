@@ -1,5 +1,7 @@
+import { Typography } from 'antd';
 import styled from 'styled-components';
 
+const { Title } = Typography;
 export const BackgroundImage = styled.img`
   position: absolute;
   left: 0;
@@ -10,7 +12,11 @@ export const BackgroundImage = styled.img`
 `;
 
 export const LogoImage = styled.img`
-  max-width: 300px;
+  max-width: 202px;
+`;
+
+export const TitleLogin = styled(Title)`
+  color: #006397;
 `;
 
 export const ContainerLogin = styled.div`
@@ -24,7 +30,7 @@ export const ContainerLogin = styled.div`
   width: 100%;
   height: 100vh;
   max-width: 646px;
-  padding: 22px;
+  padding: 0px 22px;
 `;
 
 export const LimitedContainer = styled.div`
