@@ -8,22 +8,36 @@ import {
   LogoImage,
   TitleLogin,
 } from '../../styles/loginScreen.styles';
-import Password from 'antd/es/input/Password';
+import axios from 'axios';
 
 const LoginScreen = () => {
-  const [username, setUserName] = useState('');
+  const [email, setemail] = useState('');
   const [password, setPassoword] = useState('');
 
-  const handleUserName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(event.target.value);
+  const handleemail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setemail(event.target.value);
   };
 
   const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassoword(event.target.value);
   };
 
-  const handleLogin = () => {
-    alert(`${username}, ${password}`);
+  const handleLogin = async () => {
+    await axios({
+      method: 'post',
+      url: 'http://localhost:8080/auth',
+      data: {
+        email: email,
+        password: password,
+      },
+    })
+      .then((result) => {
+        alert(`Fez login ${result.data.acessToken}`);
+        return result.data;
+      })
+      .catch(() => {
+        alert(`Usuário ou senha inválidos`);
+      });
   };
   return (
     <div>
@@ -34,19 +48,8 @@ const LoginScreen = () => {
           <TitleLogin level={2} type="secondary">
             LOGIN
           </TitleLogin>
-          <Input
-            style={{ margin: '12px 0px 0x 0px' }}
-            title="USER"
-            onChange={handleUserName}
-            value={username}
-          />
-          <Input
-            type="password"
-            onChange={handlePassword}
-            value={password}
-            style={{ margin: '12px 0px 0x 0px' }}
-            title="PASSWORD"
-          />
+          <Input title="USER" onChange={handleemail} value={email} />
+          <Input type="password" onChange={handlePassword} value={password} title="PASSWORD" />
           <Button onClick={handleLogin}>LOGIN</Button>
         </LimitedContainer>
       </ContainerLogin>

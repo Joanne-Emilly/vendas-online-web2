@@ -9,6 +9,7 @@ export const BoxInput = styled.div`
 `;
 
 export const TitleInput = styled(Title)`
-  margin-left: 8px;
+  margin: 32px 0px 0px 8px;
   font-weight: 700;
+  color: #333;
 `;
