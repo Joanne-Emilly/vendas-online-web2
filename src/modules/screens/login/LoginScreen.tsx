@@ -5,10 +5,10 @@ import {
   BackgroundImage,
   ContainerLogin,
   LimitedContainer,
-  LogoImage,
   TitleLogin,
 } from '../../styles/loginScreen.styles';
 import axios from 'axios';
+import SVGLogo from '../../../shared/icons/SVGLogo';
 
 const LoginScreen = () => {
   const [email, setemail] = useState('');
@@ -44,7 +44,7 @@ const LoginScreen = () => {
       <BackgroundImage src="./background.png" />
       <ContainerLogin>
         <LimitedContainer>
-          <LogoImage src="./logoImage.png" />
+          <SVGLogo />
           <TitleLogin level={2} type="secondary">
             LOGIN
           </TitleLogin>

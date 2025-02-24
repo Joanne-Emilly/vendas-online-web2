@@ -11,10 +11,6 @@ export const BackgroundImage = styled.img`
   object-fit: cover;
 `;
 
-export const LogoImage = styled.img`
-  max-width: 202px;
-`;
-
 export const TitleLogin = styled(Title)`
   color: #006397;
 `;
